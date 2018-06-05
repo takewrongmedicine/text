@@ -1,0 +1,32 @@
+1、安装qt-sdk-win-opensource-2010.02.1.exe。
+
+2、下载boost_1_63_0并解压，如：解压到E盘根目录下。
+
+3、在开始菜单中找到Qt下的Qt Command Prompt，运行。
+
+4、输入命令->E:
+
+5、输入命令->cd boost_1_63_0/tools/build/src/engine。
+
+6、输入命令->build.bat gcc，在当前目录将会生成bin.ntx86文件夹，里面包含两个exe文件b2.exe,bjam.exe。
+
+7、将bin.ntx86\bjam.exe拷贝到E:\boost_1_63_0。
+
+8、输入命令->cd ../../../..，进入boost_1_63_0目录下。
+
+9、输入命令->bjam "toolset=gcc" install，等待一段时间后，会在C盘根目录下生成一个boost文件夹，里面放着生成的头文件以及LIB和DLL文。
+
+10、将C:\Boost\include\boost-1_63目录下的boost文件夹拷贝到C:\MinGW\include下面（根据MinGW安装路径来决定）。
+
+11、将C:\Boost\lib下的lib文件拷贝到C:\MinGW\lib下面（根据MinGW安装路径来决定）。
+
+特殊说明：
+boost中使用asio模块
+pro相关内容如下
+LIBS += -lws2_32 （windows下缺失报错undefined reference to `WSAStartup）
+LIBS += -lboost_system-mgw53-mt-d-1_52
+LIBS += -lboost_thread-mgw53-mt-d-1_52
+LIBS += -lboost_date_time-mgw53-mt-d-1_52
+LIBS += -lboost_regex-mgw53-mt-d-1_52
+LIBS += -lboost_serialization-mgw53-mt-d-1_52
+ 
